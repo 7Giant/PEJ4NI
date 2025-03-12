@@ -3,7 +3,10 @@ from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)
+
+# 🔥 CORS RICHTIG SETZEN, damit Netlify mit Render kommunizieren kann
+CORS(app, supports_credentials=True, origins=["https://jolly-sundae-12badf.netlify.app"])
+
 app.secret_key = "super_secret_key"
 
 UPLOAD_FOLDER = "uploads"
