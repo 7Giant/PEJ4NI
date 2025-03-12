@@ -4,8 +4,8 @@ import os
 
 app = Flask(__name__)
 
-# 🔥 CORS RICHTIG SETZEN, damit Netlify mit Render kommunizieren kann
-CORS(app, supports_credentials=True, origins=["https://jolly-sundae-12badf.netlify.app"])
+# 🔥 CORS-Fix für Netlify (ALLE Routen erlauben)
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "https://jolly-sundae-12badf.netlify.app"}})
 
 app.secret_key = "super_secret_key"
 
